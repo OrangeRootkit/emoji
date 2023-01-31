@@ -81,17 +81,6 @@
     
   }
 
-  .header__input:hover {
-    opacity: 0.9;
-    
-  }
-  
-  .header__input:active {
-    opacity: 0.8;
-  }
-
-
-
   .home__wrapper {
     margin: 0 auto;
     width: 986px;
@@ -107,22 +96,22 @@
     gap: 19px;
   }
 
-    .home__grid-card {
-        width: 316px;
-        height: 184px;
-        border-radius: 4px;
-        background-color: #fff;
-        padding: 24px 0;
+  .home__grid-card {
+    width: 316px;
+    height: 184px;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 24px 0;
+   }
+
+.emoji {
+    font-size: 48px;
+    line-height: 48px;
+    text-align: center;
+    margin-bottom: 18px;
     }
 
-    .emoji {
-        font-size: 48px;
-        line-height: 48px;
-        text-align: center;
-        margin-bottom: 18px;
-    }
-
-    .capture {
+  .capture {
         font-size: 17px;
         line-height: 28px;
         font-weight: 700;
@@ -131,7 +120,7 @@
         margin-bottom: 12px;
     }
 
-    .card__text {
+.card__text {
         text-align: center;
         font-weight: 400;
         font-size: 12px;
@@ -139,38 +128,20 @@
         color: #3F444A;
 
     }
-
-    .home__line {
+.home__line {
         width: 986px;
         height: 1px;
         margin: 0 auto;
         border: 1px solid #CED4DA;
         /* border: 1px solid #CED4DA; */
       }
-
-  .footer {
+.footer {
     margin: 17px 0 13px;
   }
-
-  .footer__text {
+.footer__text {
     text-align: center;
     color: #6C757D;
     font-weight: 400;
     font-size: 16px;
     line-height: 21px;
-  }
-
-  @keyframes emoji-finder {
-    0% {
-      border-radius: 1px;
-      box-shadow: 0px blue;
-    }
-    100% {
-      border-radius: 1px;
-      box-shadow: 0px blue;
-    }
-  }
-
-  .hide {
-    display: none;
   }

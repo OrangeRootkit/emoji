@@ -2,47 +2,29 @@ import { data } from "./data.js";
 
 const home__grid = document.querySelector('.home__grid')
 const inputLine =  document.querySelector('.header__input');
-console.log(typeof home__grid)
-
-function add (data) {
-  for (let el of data) {
-    createCard(el);
-  }
-}
-add(data)
 
 function createCard (obj) {
-  const card = document.createElement('div');
-  card.className ='home__grid-card';
-
-  const symbol = document.createElement('p');
-  symbol.textContent = obj.symbol;
-  symbol.className ='emoji';
-
-  const title = document.createElement('p');
-  title.textContent = obj.title;
-  title.className = 'capture';
-
-  const keywords = document.createElement('p');
   let uniq = new Set (obj.keywords.split(' '));
-  uniq = Array.from(uniq);
-  keywords.textContent = uniq.join(' ');
-  keywords.className = 'card__text';
+  let keywords = Array.from(uniq).join(' ');
+  const card = document.createElement('div');
+  card.className = 'home__grid-card';
+  card.innerHTML = `<p class='emoji'>${obj.symbol}</p>
+  <p class='capture'>${obj.title}</p>
+  <p class='card__text'>${keywords}</p>`
 
-  card.append(symbol,title, keywords);
-  home__grid.append(card)
+  return card
 }
 
-inputLine.addEventListener('input',(e)=>handleInput(e.target.value));
+function inputSearch(event) {
+  home__grid.innerHTML = '';
+  data
+  .filter(
+    (item)=>
+    item.title.includes(event.target.value.toLowerCase().trim()) ||
+    item.keywords.includes(event.target.value.toLowerCase().trim()))
+  .forEach((item) => home__grid.append(createCard(item)));
+};
 
-function handleInput (e) {
-  home__grid.innerHTML = ' '
-  console.log(e)
-  for (let el of data) {
-      if (el.keywords.includes(e.toLowerCase().trim())) {
-      createCard(el);
-    } else if (el.title.includes(e.toLowerCase().trim())) {
-      createCard(el);
-    }
-   };
-  }
+inputLine.addEventListener('input',inputSearch);
+
+data.forEach((card)=>home__grid.append(createCard(card)))
