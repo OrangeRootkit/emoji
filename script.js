@@ -1,24 +1,48 @@
-'use strict'
+import { data } from "./data.js";
 
+const home__grid = document.querySelector('.home__grid')
 const inputLine =  document.querySelector('.header__input');
-const cardText = document.querySelectorAll('.card__text');
-console.log(cardText);
+console.log(typeof home__grid)
 
-const changeColor = (event) => {
-     inputLine.style.color = 'red'
- }
+function add (data) {
+  for (let el of data) {
+    createCard(el);
+  }
+}
+add(data)
 
-// const searchCard = (event) => {
-//     inputLine.style.color = 'red'
-// }
+function createCard (obj) {
+  const card = document.createElement('div');
+  card.className ='home__grid-card';
 
+  const symbol = document.createElement('p');
+  symbol.textContent = obj.symbol;
+  symbol.className ='emoji';
 
-inputLine.addEventListener("click", changeColor());
+  const title = document.createElement('p');
+  title.textContent = obj.title;
+  title.className = 'capture';
 
-// let handler = changeColor();
-console.log('hi');
-console.log('sdt')
-console.log('he')
-// ()=> {
-//     inputLine.style.color = 'red';
-// });
+  const keywords = document.createElement('p');
+  let uniq = new Set (obj.keywords.split(' '));
+  uniq = Array.from(uniq);
+  keywords.textContent = uniq.join(' ');
+  keywords.className = 'card__text';
+
+  card.append(symbol,title, keywords);
+  home__grid.append(card)
+}
+
+inputLine.addEventListener('input',(e)=>handleInput(e.target.value));
+
+function handleInput (e) {
+  home__grid.innerHTML = ' '
+  console.log(e)
+  for (let el of data) {
+      if (el.keywords.includes(e.toLowerCase().trim())) {
+      createCard(el);
+    } else if (el.title.includes(e.toLowerCase().trim())) {
+      createCard(el);
+    }
+   };
+  }

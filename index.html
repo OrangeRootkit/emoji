@@ -17,14 +17,14 @@
         <div class="container" >
         <h1 class="header__head">Emoji Finder</h1>
         <p class="header__text">Find emoji by keywords</p>
-        <input class='header__input' type="text" placeholder="Placeholder">
+        <input class='header__input' onkeydown="keyHandler(event)" type="text" placeholder="Placeholder">
     </div>
     </header>
     <main>
         <div class="container">
             <div class="home__wrapper">
                 <div class="home__grid">
-                     <div class="home__grid-card">
+                     <!-- <div class="home__grid-card">
                         <p class="emoji">💯</p>
                         <p class="capture">100</p>
                         <p class="card__text">Hundred, points, symbol, wow, win, perfect, parties</p>
@@ -53,11 +53,12 @@
                         <p class="emoji">🔢</p>
                         <p class="capture">1234</p>
                         <p class="card__text">input symbol for numbers symbol</p>
-                    </div>
+                    </div> -->
                  </div>
             </div>
-            
         </div>
+     
+
     </main>
     <div class="home__line"></div>
     <footer class="footer">
@@ -66,6 +67,6 @@
          </div>
     </footer>
     </div>
-    <script src="./script.js"></script>
+    <script src="./script.js" type="module"></script>
     </body>
 </html>

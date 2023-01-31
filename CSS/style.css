@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
   }
+.divClass {
+  padding: 30px;
+  border: 1px solid black;
+  background-color: royalblue;
+}
+
+
   .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -10,7 +17,7 @@
   
   body {
     font-family: "Inter", sans-serif;
-    background-color: #D4D3D8;
+    background-color: #EDEEF3;
   }
   
   html {
@@ -137,7 +144,7 @@
         width: 986px;
         height: 1px;
         margin: 0 auto;
-        border: 1px solid red;
+        border: 1px solid #CED4DA;
         /* border: 1px solid #CED4DA; */
       }
 
@@ -162,4 +169,8 @@
       border-radius: 1px;
       box-shadow: 0px blue;
     }
+  }
+
+  .hide {
+    display: none;
   }
