@@ -4,8 +4,7 @@ const home__grid = document.querySelector('.home__grid')
 const inputLine =  document.querySelector('.header__input');
 
 function createCard (obj) {
-  let uniq = new Set (obj.keywords.split(' '));
-  let keywords = Array.from(uniq).join(' ');
+  let keywords = [...new Set (obj.keywords.split(' '))].join(' ');
   const card = document.createElement('div');
   card.className = 'home__grid-card';
   card.innerHTML = `<p class='emoji'>${obj.symbol}</p>
